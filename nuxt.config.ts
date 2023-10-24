@@ -21,6 +21,13 @@ export default defineNuxtConfig({
                 transformAssetUrls,
             },
         },
+        css: {
+            preprocessorOptions: {
+                scss: {
+                    additionalData: '@use "@/assets/scss/_colors.scss" as *;',
+                },
+            },
+        },
     },
     $development: {
         routeRules: {
