@@ -1,0 +1,12 @@
+{
+    "root": true,
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "extends": [
+        "@nuxt/eslint-config",
+        "plugin:vue/vue3-recommended",
+        "prettier/vue",
+        "plugin:prettier/recommended"
+    ]
+}
