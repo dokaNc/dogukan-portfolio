@@ -26,6 +26,7 @@
   "dependencies": {
     "@mdi/font": "^7.3.67",
     "sass": "^1.69.2",
+    "vue-use-active-scroll": "^1.1.1",
     "vuetify": "^3.3.22"
   }
 }
