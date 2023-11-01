@@ -3,6 +3,7 @@ import "vuetify/styles";
 import { createVuetify, ThemeDefinition } from "vuetify";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
+import Vue3Lottie from "vue3-lottie";
 
 const darkTheme: ThemeDefinition = {
   dark: true,
@@ -31,5 +32,5 @@ export default defineNuxtPlugin((app) => {
       },
     },
   });
-  app.vueApp.use(vuetify);
+  app.vueApp.use(vuetify).use(Vue3Lottie);
 });

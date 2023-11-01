@@ -27,6 +27,7 @@
     "@mdi/font": "^7.3.67",
     "sass": "^1.69.2",
     "vue-use-active-scroll": "^1.1.1",
+    "vue3-lottie": "^3.2.0",
     "vuetify": "^3.3.22"
   }
 }
