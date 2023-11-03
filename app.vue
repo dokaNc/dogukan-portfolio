@@ -21,7 +21,7 @@
             </section-block>
           </v-col>
           <v-col cols="12" lg="9" md="9" sm="12" xs="12">
-            <section-block class="mb-8">
+            <section-block id="match" class="mb-8">
               <template v-slot:title>
                 <section-title-item title="Compétence"></section-title-item>
               </template>
@@ -41,12 +41,16 @@
                   :items="languages"
                   label="Compétence"
                   v-model="selected"
+                  :loading="load"
+                  @updateInput="isLoad"
+                  @clickInput="load = true"
                 />
 
                 <div class="competence d-flex">
                   <chip-default
                     class="mr-4"
                     v-for="language in selected"
+                    :key="language"
                     size="large"
                     :active="true"
                     :text="language"
@@ -57,17 +61,14 @@
           </v-col>
         </v-row>
 
-        <Teleport to="body" :disabled="false">
-          <modal-blur-block>
-            <template v-slot:content>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut
-                dolore hic fugit iusto voluptatum laborum enim eaque a
-                consectetur, itaque, repudiandae asperiores optio illum libero
-                culpa perspiciatis cumque reiciendis soluta?
-              </p>
-            </template>
-          </modal-blur-block>
+        <Teleport to="body">
+          <div v-if="matchedSkill && open">
+            <modal-blur-block>
+              <template v-slot:content>
+                <animation-congratulation :congratulation-text="matchedSkill" />
+              </template>
+            </modal-blur-block>
+          </div>
         </Teleport>
       </v-container>
     </v-app>
@@ -78,10 +79,6 @@
 import { useTheme } from "vuetify";
 import ChipDefault from "./components/chip/ChipDefault.vue";
 import AutocompleteDefault from "./components/controls/AutocompleteDefault.vue";
-
-onMounted(() => {
-  console.log(theme.global.name.value);
-});
 
 // Switch Theme
 const theme = useTheme();
@@ -95,7 +92,26 @@ function toggleTheme() {
 const languages = ["Symfony", "Vue Js", "PHP", "JavaScript"];
 const selected = ref([]);
 
-// Scroll Active Link
+// Match Competence
+const open = ref(false);
+
+const matchedSkill = computed(() => {
+  setTimeout(() => {
+    open.value = false;
+  }, 2000);
+
+  open.value = true;
+  return selected.value[selected.value.length - 1];
+});
+
+// Autocomplete Loading
+const load = ref(false);
+
+const isLoad = computed(() => {
+  if (selected.value.length > 0) {
+    load.value = false;
+  }
+});
 </script>
 
 <style lang="scss">
@@ -111,6 +127,11 @@ html {
 .navigation {
   position: sticky;
   top: 24px;
+}
+
+.competence {
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
 }
 
 strong {

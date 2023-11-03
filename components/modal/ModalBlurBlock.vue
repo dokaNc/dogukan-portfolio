@@ -16,12 +16,23 @@
   z-index: 999;
   height: 100%;
   width: 100%;
+  animation: fadeOut 2s;
+
+  .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
-.content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+// KEYFRAMES
+@keyframes fadeOut {
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 </style>

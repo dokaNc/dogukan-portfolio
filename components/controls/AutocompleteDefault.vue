@@ -3,15 +3,18 @@
     chips
     hide-selected
     clearable
-    :hide-details="true"
-    item-color="#000"
-    no-data-text="Aucune compétence de disponibles"
-    :label="props.label"
-    :items="props.data"
     multiple
     variant="underlined"
+    item-color="#000"
+    no-data-text="Aucune compétence de disponibles"
+    :menu-props="{ closeOnContentClick: true }"
+    :hide-details="true"
+    :loading="props.loading"
+    :label="props.label"
+    :items="props.data"
     :model-value="props.selected"
-    @input="$emit('update:props.selected', $event.target.value)"
+    @input="$emit('updateInput')"
+    @click.once="$emit('clickInput')"
   ></v-autocomplete>
 </template>
 
@@ -26,7 +29,12 @@ const props = defineProps({
   selected: {
     type: String,
   },
+  loading: {
+    type: Boolean,
+  },
 });
+
+const emit = defineEmits(["updateInput", "clickInput"]);
 </script>
 
 <style scoped lang="scss">
