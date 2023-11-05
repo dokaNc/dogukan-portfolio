@@ -9,12 +9,10 @@
     no-data-text="Aucune compétence de disponibles"
     :menu-props="{ closeOnContentClick: true }"
     :hide-details="true"
-    :loading="props.loading"
-    :label="props.label"
-    :items="props.data"
-    :model-value="props.selected"
-    @input="$emit('updateInput')"
-    @click.once="$emit('clickInput')"
+    :loading="loading"
+    :label="label"
+    :items="data"
+    @click="$emit('clickInput')"
   ></v-autocomplete>
 </template>
 
@@ -27,14 +25,12 @@ const props = defineProps({
     type: Array,
   },
   selected: {
-    type: String,
+    type: Array,
   },
   loading: {
     type: Boolean,
   },
 });
-
-const emit = defineEmits(["updateInput", "clickInput"]);
 </script>
 
 <style scoped lang="scss">

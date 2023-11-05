@@ -38,12 +38,11 @@
               </template>
               <template v-slot:extra-content>
                 <autocomplete-default
-                  :items="languages"
                   label="Compétence"
                   v-model="selected"
+                  :items="languages"
                   :loading="load"
-                  @updateInput="isLoad"
-                  @clickInput="load = true"
+                  @click-input.once="load = true"
                 />
 
                 <div class="competence d-flex">
@@ -62,10 +61,10 @@
         </v-row>
 
         <Teleport to="body">
-          <div v-if="matchedSkill && open">
+          <div v-if="match">
             <modal-blur-block>
               <template v-slot:content>
-                <animation-congratulation :congratulation-text="matchedSkill" />
+                <animation-congratulation :congratulation-text="match" />
               </template>
             </modal-blur-block>
           </div>
@@ -88,29 +87,45 @@ function toggleTheme() {
     : "darkTheme";
 }
 
-// Autocomplete & Chip
-const languages = ["Symfony", "Vue Js", "PHP", "JavaScript"];
+// Data
+const languages = [
+  "JavaScript",
+  "Vue Js",
+  "PHP",
+  "Symfony",
+  "NuxtJS",
+  "Vuetify",
+  "Storybook",
+  "Tailwind",
+  "Doctrine",
+  "API Platform",
+  "MySQL",
+  "PostgreSQL",
+  "Git",
+  "Docker",
+  "Cypress",
+  "Cucumber",
+  "BDD",
+  "TDD",
+  "API Rest",
+  "HTML",
+  "CSS/SASS",
+];
 const selected = ref([]);
 
-// Match Competence
-const open = ref(false);
-
-const matchedSkill = computed(() => {
-  setTimeout(() => {
-    open.value = false;
-  }, 2000);
-
-  open.value = true;
-  return selected.value[selected.value.length - 1];
-});
-
-// Autocomplete Loading
+// Handle Match Skills
+const match = ref(null);
 const load = ref(false);
 
-const isLoad = computed(() => {
-  if (selected.value.length > 0) {
-    load.value = false;
-  }
+watch(selected, () => {
+  // Update 'match' when 'selected' is updated
+  match.value = selected.value[selected.value.length - 1];
+  setTimeout(() => {
+    match.value = null;
+  }, 2000);
+
+  // Stop the 'loading' when 'selected' is updated
+  load.value = false;
 });
 </script>
 
