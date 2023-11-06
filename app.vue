@@ -57,6 +57,35 @@
                 </div>
               </template>
             </section-block>
+            <section-block id="experience" class="mb-8">
+              <template v-slot:title>
+                <section-title-item title="Expérience"></section-title-item>
+              </template>
+              <template v-slot:subtitle>
+                <h1>Professionnelle & Formation</h1>
+              </template>
+              <template v-slot:content>
+                <p>
+                  Je vous invite à explorer l'ensemble de mon parcours, depuis
+                  mes premiers pas dans le monde du développement web. Découvrez
+                  ainsi toute mon expérience et les compétences que j'ai
+                  acquises au fil des années.
+                </p>
+              </template>
+              <template v-slot:extra-content>
+                <timeline first-icon="💼" second-icon="🎓">
+                  <template v-slot:content-first>
+                    <timeline-item />
+                    <timeline-item />
+                    <timeline-item />
+                  </template>
+                  <template v-slot:content-second>
+                    <timeline-item />
+                    <timeline-item />
+                  </template>
+                </timeline>
+              </template>
+            </section-block>
           </v-col>
         </v-row>
 
