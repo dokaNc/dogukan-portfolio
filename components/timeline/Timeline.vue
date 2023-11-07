@@ -32,6 +32,7 @@ defineProps({
 <style scoped lang="scss">
 .container {
   gap: 3rem;
+  transition: all 0.4s;
 
   @media (min-width: 960px) {
     gap: 13rem !important;

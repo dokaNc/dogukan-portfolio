@@ -17,6 +17,7 @@
   box-shadow: 0px 0px 26px 0px rgba(0, 0, 0, 0.07);
   border-radius: 0.5rem;
   gap: 1rem;
+  transition: all 0.2s;
 }
 
 .v-theme--darkTheme {
