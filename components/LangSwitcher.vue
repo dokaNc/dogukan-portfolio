@@ -1,23 +1,19 @@
 <template>
-  <div>
-    🌐
-    <button @click="onLocaleChanged">LANGUE</button>
-    <!-- <select :value="locale" @change="onLocaleChanged">
-      <option v-for="loc in locales" :key="loc" :value="loc">
-        {{ loc }}
-      </option>
-    </select> -->
-  </div>
+  <v-btn
+    class="float-right"
+    v-for="locale in availableLocales"
+    :key="locale.code"
+    @click.prevent.stop="setLocale(locale.code)"
+    href="#"
+  >
+    {{ locale.name }}
+  </v-btn>
 </template>
 
 <script setup>
-// Get active locale and supported locales
-const { locale, locales } = useI18n();
+const { locale, locales, setLocale } = useI18n();
 
-const router = useRouter();
-const switchLocalePath = useSwitchLocalePath();
-
-function onLocaleChanged(event) {
-  router.push({ path: "/en-US" });
-}
+const availableLocales = computed(() => {
+  return locales.value.filter((i) => i.code !== locale.value);
+});
 </script>

@@ -67,7 +67,8 @@ const experienceWord = computed(() => {
       <v-container>
         <v-row>
           <v-col>
-            <v-btn class="float-right" @click="toggleTheme">
+            <lang-switcher />
+            <v-btn class="float-right mr-2" @click="toggleTheme">
               <div v-if="theme.global.name.value === 'lightTheme'">🌑</div>
               <div v-else>🌙</div>
             </v-btn>

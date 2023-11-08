@@ -35,7 +35,7 @@ export default defineNuxtConfig({
     },
   },
   routeRules: {
-    "/": { redirect: "/fr" },
+    "/": { redirect: "/fr-FR" },
   },
   // 👇 Configure i18n module
   i18n: {
