@@ -13,6 +13,7 @@
     "@nuxt/devtools": "latest",
     "@nuxt/eslint-config": "^0.2.0",
     "@nuxtjs/color-mode": "^3.3.0",
+    "@nuxtjs/i18n": "^8.0.0-rc.5",
     "eslint": "^8.52.0",
     "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-vue": "^9.18.0",

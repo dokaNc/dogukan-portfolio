@@ -2,8 +2,10 @@
 import vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
 
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+  ssr: true,
+  // devtools: { enabled: true },
   modules: [
+    "@nuxtjs/i18n",
     "@nuxtjs/color-mode",
     (_options, nuxt) => {
       nuxt.hooks.hook("vite:extendConfig", (config) => {
@@ -32,9 +34,36 @@ export default defineNuxtConfig({
       },
     },
   },
-  $development: {
-    routeRules: {
-      "/": { prerender: true },
-    },
+  routeRules: {
+    "/": { redirect: "/fr" },
+  },
+  // 👇 Configure i18n module
+  i18n: {
+    // many locales as you want here.
+    locales: [
+      {
+        code: "fr-FR",
+        name: "Français",
+        iso: "fr-FR",
+        file: "fr-FR.js",
+      },
+      {
+        code: "en-US",
+        name: "English",
+        iso: "en-US",
+        file: "en-US.js",
+      },
+    ],
+    // Tell Nuxt I18n to load translations asynchronously
+    lazy: true,
+    // Let Nuxt I18n know the root directory of our translations
+    langDir: "lang",
+    // Used when active locale is not explicitly defined
+    defaultLocale: "fr-FR",
+    strategy: "prefix",
+    // Disabling automatic locale detection (see below)
+    detectBrowserLanguage: false,
+    // 👇 Reference the Vue I18n config file
+    vueI18n: "./i18n.config.ts",
   },
 });

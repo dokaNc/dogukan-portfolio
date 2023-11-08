@@ -3,9 +3,10 @@
     <Vue3Lottie :animationData="congratulationJSON" :width="350" />
   </client-only>
   <div class="congratulation">
-    <h1>IL Y’A MATCH !</h1>
+    <h1>{{ $t("skill.animation.h1") }}</h1>
     <h2>
-      avec <span>{{ props.congratulationText }}</span>
+      {{ $t("skill.animation.h2") }}
+      <span>{{ props.congratulationText }} !</span>
     </h2>
   </div>
 </template>
