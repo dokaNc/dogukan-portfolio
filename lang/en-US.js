@@ -1,4 +1,26 @@
 export default {
+  navigation: {
+    about: "About",
+    skill: "Skill",
+    experience: "Experience",
+    contact: "Contact",
+  },
+  about: {
+    title: "About",
+    subtitle: "Full Stack Developer",
+    content:
+      "Hi ! As a full stack developer, I am determined to contribute to various projects to strengthen my skills and gain valuable human experience. My journey is guided by my thirst for learning and my desire to build meaningful professional connections.",
+    extraContent: {
+      yearExperience: {
+        number: 3,
+        title: "Years of experience",
+      },
+      completedProject: {
+        number: 15,
+        title: "Completed projects",
+      },
+    },
+  },
   skill: {
     title: "Skill",
     subtitle: "Is there a {word}?",
