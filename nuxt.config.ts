@@ -62,8 +62,15 @@ export default defineNuxtConfig({
     defaultLocale: "fr-FR",
     strategy: "prefix",
     // Disabling automatic locale detection (see below)
-    detectBrowserLanguage: false,
+    // detectBrowserLanguage: false,
+
     // 👇 Reference the Vue I18n config file
     vueI18n: "./i18n.config.ts",
+
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: "i18n",
+      redirectOn: "root",
+    },
   },
 });

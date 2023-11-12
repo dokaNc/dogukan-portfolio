@@ -25,7 +25,7 @@ export default {
     title: "Compétence",
     subtitle: "Est-ce que y'a {word} ?",
     content:
-      "{word} Je vous invite à faire part des compétences recherchées pour votre projet. Remplissez le champ ci-dessous et découvrez si il y a match entre nous 💙",
+      "{word} Je vous invite à faire part des compétences recherchées pour votre entreprise ou projet. Remplissez le champ ci-dessous et découvrez si il y a match entre nous 💙",
     animation: {
       h1: "IL Y’A MATCH",
       h2: "avec",
