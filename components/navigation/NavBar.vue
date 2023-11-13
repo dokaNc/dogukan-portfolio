@@ -1,0 +1,78 @@
+<script setup></script>
+
+<template>
+  <nav class="navigation d-flex flex-column">
+    <!-- <NuxtLink :to="{ hash: '#about' }">
+      <span class="link">{{ $t("navigation.about") }}</span>
+      <span class="circle" :class="{ turn: true }"></span>
+    </NuxtLink> -->
+    <NuxtLink :to="{ hash: '#skill' }">
+      <span class="link active">{{ $t("navigation.skill") }}</span>
+      <span class="circle turn"></span>
+    </NuxtLink>
+    <NuxtLink :to="{ hash: '#experience' }">
+      <span class="link">{{ $t("navigation.experience") }}</span>
+      <span class="circle"></span>
+    </NuxtLink>
+    <!-- <NuxtLink :to="{ hash: '#contact' }">
+      <span class="link">{{ $t("navigation.contact") }}</span>
+      <span class="circle"></span>
+    </NuxtLink> -->
+  </nav>
+</template>
+
+<style scoped lang="scss">
+.navigation {
+  gap: 1.5rem;
+
+  .router-link-active {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .link {
+    color: $dark-grey-main;
+    text-transform: uppercase;
+    font-weight: 300;
+
+    &.active {
+      color: #fff;
+      transition: all 0.2s;
+    }
+  }
+
+  .circle {
+    height: 7px;
+    width: 7px;
+    background-color: $dark-grey-main;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 6px;
+
+    &.turn {
+      border: 1px dashed #fff;
+      height: 18px;
+      width: 18px;
+      margin-right: 0px;
+      background: transparent;
+      animation-name: rotate;
+      animation-duration: 7s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      transition: all 0.2s;
+    }
+  }
+}
+
+// KEYFRAMES
+@keyframes rotate {
+  from {
+    transform: rotate(-360deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+</style>

@@ -49,6 +49,43 @@ const experienceWord = computed(() => {
     ? "<strong>Tentez <span>l'expérience</span> !</strong>"
     : "<strong>Try the <span>experience</span>!</strong>";
 });
+
+// Navigation ACTIVE on Scroll
+onMounted(() => {
+  // simple function to use for callback in the intersection observer
+  const changeNav = (entries, observer) => {
+    entries.forEach((entry) => {
+      // verify the element is intersecting
+      if (entry.isIntersecting) {
+        // remove old active class
+        document.querySelector(".active").classList.remove("active");
+        document.querySelector(".turn").classList.remove("turn");
+        // get id of the intersecting section
+        var id = entry.target.getAttribute("id");
+        // find matching link & add appropriate class
+        const newLink = document.querySelector(
+          `[href="/${locale.value}#${id}"]`
+        );
+
+        newLink.querySelector(".link").classList.add("active");
+        newLink.querySelector(".circle").classList.add("turn");
+      }
+    });
+  };
+
+  // init the observer
+  const options = {
+    threshold: 1,
+  };
+
+  const observer = new IntersectionObserver(changeNav, options);
+
+  // target the elements to be observed
+  const sections = document.querySelectorAll(".block");
+  sections.forEach((section) => {
+    observer.observe(section);
+  });
+});
 </script>
 
 <template>
@@ -75,7 +112,7 @@ const experienceWord = computed(() => {
           </section-block>
         </v-col>
         <v-col cols="12" lg="9" md="9" sm="12" xs="12">
-          <section-block id="skill" class="mb-8">
+          <section-block id="skill" class="mb-8 block">
             <template v-slot:title>
               <section-title-item
                 :title="$t('skill.title')"
@@ -84,8 +121,8 @@ const experienceWord = computed(() => {
             <template v-slot:subtitle>
               <h1
                 v-html="$t('skill.subtitle', { word: '<span>MATCH</span>' })"
-              ></h1> </template
-            >d
+              ></h1
+            ></template>
             <template v-slot:content>
               <p v-html="$t('skill.content', { word: experienceWord })"></p>
             </template>
@@ -110,7 +147,7 @@ const experienceWord = computed(() => {
               </div>
             </template>
           </section-block>
-          <section-block id="experience" class="mb-8">
+          <section-block id="experience" class="mb-8 block">
             <template v-slot:title>
               <section-title-item
                 :title="$t('experience.title')"
