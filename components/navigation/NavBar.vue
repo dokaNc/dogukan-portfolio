@@ -1,23 +1,28 @@
-<script setup></script>
+<script setup>
+const props = defineProps({
+  links: {
+    type: Array,
+  },
+  active: {
+    type: Boolean,
+    default: false,
+  },
+});
+</script>
 
 <template>
   <nav class="navigation d-flex flex-column">
-    <!-- <NuxtLink :to="{ hash: '#about' }">
-      <span class="link">{{ $t("navigation.about") }}</span>
-      <span class="circle" :class="{ turn: true }"></span>
-    </NuxtLink> -->
-    <NuxtLink :to="{ hash: '#skill' }">
-      <span class="link active">{{ $t("navigation.skill") }}</span>
-      <span class="circle turn"></span>
+    <NuxtLink
+      v-for="link in links"
+      @click="clicked"
+      :key="link.href"
+      :to="{ hash: `#${link.href}` }"
+    >
+      <span class="link" :class="{ active: link.active }">{{
+        $t(`navigation.${link.href}`)
+      }}</span>
+      <span class="circle" :class="{ turn: link.active }"></span>
     </NuxtLink>
-    <NuxtLink :to="{ hash: '#experience' }">
-      <span class="link">{{ $t("navigation.experience") }}</span>
-      <span class="circle"></span>
-    </NuxtLink>
-    <!-- <NuxtLink :to="{ hash: '#contact' }">
-      <span class="link">{{ $t("navigation.contact") }}</span>
-      <span class="circle"></span>
-    </NuxtLink> -->
   </nav>
 </template>
 

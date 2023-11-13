@@ -1,9 +1,12 @@
 <script setup>
 import AutocompleteDefault from "@/components/controls/AutocompleteDefault.vue";
 import navBar from "@/components/navigation/NavBar.vue";
-const { locale } = useI18n();
 
-// Data
+const { locale } = useI18n();
+const nav = reactive([
+  { href: "skill", active: true },
+  { href: "experience", active: false },
+]);
 const languages = [
   "JavaScript",
   "Vue Js",
@@ -81,7 +84,7 @@ onMounted(() => {
   const observer = new IntersectionObserver(changeNav, options);
 
   // target the elements to be observed
-  const sections = document.querySelectorAll(".block");
+  const sections = document.querySelectorAll(".default-block");
   sections.forEach((section) => {
     observer.observe(section);
   });
@@ -107,70 +110,74 @@ onMounted(() => {
             }"
           >
             <template v-slot:content>
-              <nav-bar />
+              <nav-bar :links="nav" />
             </template>
           </section-block>
         </v-col>
         <v-col cols="12" lg="9" md="9" sm="12" xs="12">
-          <section-block id="skill" class="mb-8 block">
+          <section-block
+            v-for="item in nav"
+            :key="item"
+            :id="`${item.href}`"
+            ref="targets"
+            class="mb-8 default-block"
+          >
+            <template v-slot:avatar></template>
             <template v-slot:title>
               <section-title-item
-                :title="$t('skill.title')"
+                :title="$t(`${item.href}.title`)"
               ></section-title-item>
             </template>
             <template v-slot:subtitle>
               <h1
-                v-html="$t('skill.subtitle', { word: '<span>MATCH</span>' })"
-              ></h1
-            ></template>
+                v-html="
+                  $t(`${item.href}.subtitle`, { word: '<span>MATCH</span>' })
+                "
+              ></h1>
+            </template>
             <template v-slot:content>
-              <p v-html="$t('skill.content', { word: experienceWord })"></p>
+              <p
+                v-html="$t(`${item.href}.content`, { word: experienceWord })"
+              ></p>
             </template>
             <template v-slot:extra-content>
-              <autocomplete-default
-                :label="$t('skill.title')"
-                v-model="selected"
-                :items="languages"
-                :loading="load"
-                @click-input.once="load = true"
-              />
-
-              <div class="competence d-flex">
-                <chip-default
-                  class="mr-4"
-                  v-for="language in selected"
-                  :key="language"
-                  size="large"
-                  :active="true"
-                  :text="language"
+              <div
+                v-if="item.href === 'skill'"
+                class="skill d-flex flex-column"
+              >
+                <autocomplete-default
+                  :label="$t(`${item.href}.title`)"
+                  v-model="selected"
+                  :items="languages"
+                  :loading="load"
+                  @click-input.once="load = true"
                 />
+
+                <div class="skill-list d-flex">
+                  <chip-default
+                    class="mr-4"
+                    v-for="language in selected"
+                    :key="language"
+                    size="large"
+                    :active="true"
+                    :text="language"
+                  />
+                </div>
               </div>
-            </template>
-          </section-block>
-          <section-block id="experience" class="mb-8 block">
-            <template v-slot:title>
-              <section-title-item
-                :title="$t('experience.title')"
-              ></section-title-item>
-            </template>
-            <template v-slot:subtitle>
-              <h1>{{ $t("experience.subtitle") }}</h1>
-            </template>
-            <template v-slot:content>
-              <p>{{ $t("experience.content") }}</p>
-            </template>
-            <template v-slot:extra-content>
-              <timeline first-icon="💼" second-icon="🎓">
-                <template v-slot:content-first>
-                  <timeline-item />
-                  <timeline-item />
-                  <timeline-item />
-                </template>
-                <template v-slot:content-second>
-                  <timeline-item />
-                  <timeline-item />
-                </template>
-              </timeline>
+
+              <div v-if="item.href === 'experience'">
+                <timeline first-icon="💼" second-icon="🎓">
+                  <template v-slot:content-first>
+                    <timeline-item />
+                    <timeline-item />
+                    <timeline-item />
+                  </template>
+                  <template v-slot:content-second>
+                    <timeline-item />
+                    <timeline-item />
+                  </template>
+                </timeline>
+              </div>
             </template>
           </section-block>
         </v-col>
@@ -195,9 +202,13 @@ onMounted(() => {
   top: 24px;
 }
 
-.competence {
-  flex-wrap: wrap;
-  row-gap: 0.5rem;
+.skill {
+  gap: 0.6rem;
+
+  .skill-list {
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+  }
 }
 
 strong {

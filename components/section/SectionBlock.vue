@@ -1,3 +1,5 @@
+<script setup></script>
+
 <template>
   <div class="section-block d-flex flex-column px-14 py-16">
     <slot name="avatar"></slot>
@@ -7,8 +9,6 @@
     <slot name="extra-content"></slot>
   </div>
 </template>
-
-<script setup></script>
 
 <style scoped lang="scss">
 .section-block {
