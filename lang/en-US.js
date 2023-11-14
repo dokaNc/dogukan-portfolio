@@ -11,16 +11,16 @@ export default {
     subtitle: "Full Stack Developer",
     content:
       "Hi ! As a full stack developer, I am determined to contribute to various projects to strengthen my skills and gain valuable human experience. My journey is guided by my thirst for learning and my desire to build meaningful professional connections.",
-    extraContent: {
-      yearExperience: {
+    extraContent: [
+      {
         number: 3,
         title: "Years of experience",
       },
-      completedProject: {
+      {
         number: 15,
         title: "Completed projects",
       },
-    },
+    ],
   },
   experience: {
     title: "Experience",

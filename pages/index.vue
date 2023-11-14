@@ -1,5 +1,6 @@
 <script setup>
 import AutocompleteDefault from "@/components/controls/AutocompleteDefault.vue";
+import TextNumber from "@/components/misc/TextNumber.vue";
 import navBar from "@/components/navigation/NavBar.vue";
 import avatar from "@/assets/images/avatar.jpg";
 
@@ -220,11 +221,13 @@ onMounted(() => {
                 </timeline>
               </div>
 
-              <div v-if="item.href === 'about'">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error,
-                earum eum laborum optio officia alias iure cumque maxime, minima
-                temporibus laudantium placeat consectetur quidem itaque quos
-                perferendis sint numquam in.
+              <div class="text-number d-flex" v-if="item.href === 'about'">
+                <text-number
+                  v-for="content in $tm(`${item.href}.extraContent`)"
+                  :key="content"
+                  :number="content.number"
+                  :title="content.title.loc.source"
+                />
               </div>
             </template>
           </section-block>
@@ -245,6 +248,14 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
+.text-number {
+  gap: 3rem;
+
+  @media (max-width: 660px) {
+    flex-direction: column !important;
+  }
+}
+
 .navigation {
   position: sticky;
   top: 24px;
