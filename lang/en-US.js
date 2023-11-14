@@ -30,7 +30,7 @@ export default {
   },
   skill: {
     title: "Skill",
-    subtitle: "Is there a {word}?",
+    subtitle: "Is there {word}?",
     content:
       "{word} I invite you to share the skills sought for your project. Fill out the field below and find out if there is a match between us 💙",
     animation: {
