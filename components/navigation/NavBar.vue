@@ -37,6 +37,7 @@ const props = defineProps({
   }
 
   .link {
+    font-family: "Source Code Pro", monospace;
     color: $dark-grey-main;
     text-transform: uppercase;
     font-weight: 300;
