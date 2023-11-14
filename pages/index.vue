@@ -1,6 +1,7 @@
 <script setup>
 import AutocompleteDefault from "@/components/controls/AutocompleteDefault.vue";
 import navBar from "@/components/navigation/NavBar.vue";
+import avatar from "@/assets/images/avatar.jpg";
 
 const { locale } = useI18n();
 const nav = reactive([
@@ -141,7 +142,7 @@ onMounted(() => {
         </v-col>
       </v-row>
       <v-row>
-        <v-col cols="12" lg="3" md="3" sm="12" xs="12">
+        <v-col cols="12" lg="3" md="12" sm="12" xs="12">
           <section-block
             :style="{
               backgroundColor: '#632fff',
@@ -154,15 +155,18 @@ onMounted(() => {
             </template>
           </section-block>
         </v-col>
-        <v-col cols="12" lg="9" md="9" sm="12" xs="12">
+        <v-col cols="12" lg="9" md="12" sm="12" xs="12">
           <section-block
             v-for="item in nav"
             :key="item"
             :id="`${item.href}`"
             ref="targets"
             class="mb-8 default-block"
+            :avatar="item.href === 'about'"
           >
-            <template v-slot:avatar></template>
+            <template v-slot:avatar>
+              <avatar-circle v-if="item.href === 'about'" :src="avatar" />
+            </template>
             <template v-slot:title>
               <section-title-item
                 :title="$t(`${item.href}.title`)"
@@ -214,6 +218,13 @@ onMounted(() => {
                     <timeline-item :experiences="expEdu" />
                   </template>
                 </timeline>
+              </div>
+
+              <div v-if="item.href === 'about'">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error,
+                earum eum laborum optio officia alias iure cumque maxime, minima
+                temporibus laudantium placeat consectetur quidem itaque quos
+                perferendis sint numquam in.
               </div>
             </template>
           </section-block>
