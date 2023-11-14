@@ -6,6 +6,7 @@ export default {
     contact: "Contact",
   },
   about: {
+    welcome: "Salut c'est Dogukan !",
     title: "À propos",
     subtitle: "Développeur Full Stack",
     content:

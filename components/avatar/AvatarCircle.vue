@@ -15,7 +15,7 @@ defineProps({
 <template>
   <chip-blur class="chip-avatar">
     <template v-slot:text>
-      <text-typewriter text="Hello c'est Dogukan !" />
+      <text-typewriter :text="$t('about.welcome')" />
     </template>
   </chip-blur>
   <v-avatar size="256">
