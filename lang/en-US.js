@@ -21,6 +21,12 @@ export default {
       },
     },
   },
+  experience: {
+    title: "Experience",
+    subtitle: "Professional & Education",
+    content:
+      "I invite you to explore my entire journey, since my first steps in the world of web development. Discover all my experience and the skills I have acquired over the years.",
+  },
   skill: {
     title: "Skill",
     subtitle: "Is there a {word}?",
@@ -30,11 +36,5 @@ export default {
       h1: "THERE IS A MATCH",
       h2: "with",
     },
-  },
-  experience: {
-    title: "Experience",
-    subtitle: "Professional & Education",
-    content:
-      "I invite you to explore my entire journey, since my first steps in the world of web development. Discover all my experience and the skills I have acquired over the years.",
   },
 };

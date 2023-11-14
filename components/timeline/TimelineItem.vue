@@ -1,21 +1,29 @@
+<script setup>
+const hover = ref(false);
+
+defineProps({
+  experiences: {
+    type: Array,
+  },
+});
+</script>
+
 <template>
   <div
-    @mouseover="hover = true"
-    @mouseleave="hover = false"
-    @click="hover = true"
+    v-for="exp in experiences"
+    :key="exp"
+    @mouseover="exp.active = true"
+    @mouseleave="exp.active = false"
+    @click="exp.active = true"
   >
-    <v-chip class="ml-6" variant="outlined" :class="{ active: hover }">
-      2022 - 2023
+    <v-chip class="ml-6" variant="outlined" :class="{ active: exp.active }">
+      {{ exp.startDate }} - {{ exp.endDate }}
     </v-chip>
-    <h3 class="mt-1">Développeur Full Stack</h3>
-    <h4>@ Apave - Paris</h4>
+    <h3 class="mt-1">{{ exp.job }}</h3>
+    <h4>@ {{ exp.company }} - {{ exp.type }} - {{ exp.city }}</h4>
     <!-- <p class="mt-2">en savoir plus</p> -->
   </div>
 </template>
-
-<script setup>
-const hover = ref(false);
-</script>
 
 <style scoped lang="scss">
 .v-chip {

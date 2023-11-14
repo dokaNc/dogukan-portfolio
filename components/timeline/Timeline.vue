@@ -35,7 +35,7 @@ defineProps({
   transition: all 0.4s;
 
   @media (min-width: 960px) {
-    gap: 13rem !important;
+    gap: 7rem !important;
   }
 }
 

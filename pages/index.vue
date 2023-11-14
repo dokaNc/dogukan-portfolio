@@ -4,8 +4,9 @@ import navBar from "@/components/navigation/NavBar.vue";
 
 const { locale } = useI18n();
 const nav = reactive([
-  { href: "skill", active: true },
+  { href: "about", active: true },
   { href: "experience", active: false },
+  { href: "skill", active: false },
 ]);
 const languages = [
   "JavaScript",
@@ -31,7 +32,46 @@ const languages = [
   "CSS/SASS",
 ];
 const selected = ref([]);
-
+const expPro = reactive([
+  {
+    startDate: "Oct. 2022",
+    endDate: "Dec. 2023",
+    job: "Développeur Full Stack",
+    company: "Apave",
+    type: "CDD",
+    city: "Île-de-France",
+    active: false,
+  },
+  {
+    startDate: "Mar. 2020",
+    endDate: "Juil. 2022",
+    job: "Développeur Full Stack",
+    company: "France Bois Service",
+    type: "CDI",
+    city: "Hauts-De-France",
+    active: false,
+  },
+  {
+    startDate: "Dec. 2019",
+    endDate: "Ferv. 2020",
+    job: "Développeur PHP / WordPress",
+    company: "Hello Courtier",
+    type: "Freelance",
+    city: "Paris, Île-de-France",
+    active: false,
+  },
+]);
+const expEdu = reactive([
+  {
+    startDate: "Janv. 2020",
+    endDate: "Nov. 2020",
+    job: "Développeur PHP / Symfony",
+    company: "OP",
+    type: "Etudiant",
+    city: "Paris, Île-de-France",
+    active: false,
+  },
+]);
 // Handle Match Skills
 const match = ref(null);
 const load = ref(false);
@@ -168,13 +208,10 @@ onMounted(() => {
               <div v-if="item.href === 'experience'">
                 <timeline first-icon="💼" second-icon="🎓">
                   <template v-slot:content-first>
-                    <timeline-item />
-                    <timeline-item />
-                    <timeline-item />
+                    <timeline-item :experiences="expPro" />
                   </template>
                   <template v-slot:content-second>
-                    <timeline-item />
-                    <timeline-item />
+                    <timeline-item :experiences="expEdu" />
                   </template>
                 </timeline>
               </div>

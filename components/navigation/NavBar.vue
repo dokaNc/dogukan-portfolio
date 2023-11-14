@@ -14,7 +14,6 @@ const props = defineProps({
   <nav class="navigation d-flex flex-column">
     <NuxtLink
       v-for="link in links"
-      @click="clicked"
       :key="link.href"
       :to="{ hash: `#${link.href}` }"
     >
