@@ -11,10 +11,31 @@ function toggleTheme() {
 </script>
 
 <template>
-  <v-btn class="float-right ml-2" @click="toggleTheme">
-    <div v-if="theme.global.name.value === 'lightTheme'">🌑</div>
-    <div v-else>🌙</div>
-  </v-btn>
+  <div class="theme-container shadow-dark">
+    <v-btn @click="toggleTheme">
+      <div v-if="theme.global.name.value === 'lightTheme'">🌑</div>
+      <div v-else>🌙</div>
+    </v-btn>
+  </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.theme-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  z-index: 1;
+}
+
+.theme-container:hover {
+  opacity: 0.8;
+}
+
+button {
+  border-radius: 50px;
+}
+</style>
