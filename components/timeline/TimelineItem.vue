@@ -71,7 +71,7 @@ defineProps({
 .show {
   left: 30px;
   position: relative;
-  width: 80%;
+  width: 70%;
   margin-top: 15px;
   font-size: 0.8rem;
 }

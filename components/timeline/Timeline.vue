@@ -41,6 +41,7 @@ defineProps({
 
 .timeline {
   position: relative;
+  flex: 0 1 50%;
 
   .icon {
     margin-left: 1.5rem;
