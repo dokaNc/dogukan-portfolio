@@ -43,7 +43,10 @@ const expPro = reactive([
     company: "Apave",
     type: "CDD",
     city: "Île-de-France",
+    description:
+      "J'ai mis en place l'environnement de développement front pour la nouvelle version de l'application avec Vue 3 et Storybook. J'ai développé de nouvelles fonctionnalités, réalisé l'intégration BDD et TDD, rédigé des tests fonctionnels et unitaires (E2E). J'ai également développé l'API Rest de l'application avec Symfony et API Platform, ainsi que de nouvelles fonctionnalités pour l'ancienne version avec PHP 7.3 et une migration vers 8.1. J'ai effectué des requêtes SQL complexes (MySQL) et participé à des code reviews et l'utilisation de Docker, Git BitBucket, Jira.",
     active: false,
+    show: false,
   },
   {
     startDate: "Mar. 2020",
@@ -52,7 +55,10 @@ const expPro = reactive([
     company: "France Bois Service",
     type: "CDI",
     city: "Hauts-De-France",
+    description:
+      "J'ai conçu une interface avec Vue 3 et mis en place une API Rest performante avec Symfony 6 x API Platform 3, assurant des fonctionnalités sécurisées et des performances optimales. Mon travail a inclus l'intégration de fonctionnalités avancées telles que la gestion des commandes et la traçabilité des stocks. En collaborant étroitement avec les équipes internes, j'ai compris les besoins métier, et fourni des solutions adaptées. J'ai également garanti la scalabilité, la sécurité et la maintenance à long terme.",
     active: false,
+    show: false,
   },
   {
     startDate: "Dec. 2019",
@@ -61,7 +67,10 @@ const expPro = reactive([
     company: "Hello Courtier",
     type: "Freelance",
     city: "Paris, Île-de-France",
+    description:
+      "J'ai optimisé l'application web en refondant les pages principales, améliorant les performances avec une optimisation PageSpeed et retravailler le responsive global de l'appli. J'ai également assuré la migration de l'application vers un nouvel hébergeur tout en fournissant un accompagnement client.",
     active: false,
+    show: false,
   },
 ]);
 const expEdu = reactive([
@@ -72,7 +81,10 @@ const expEdu = reactive([
     company: "OP",
     type: "Etudiant",
     city: "Paris, Île-de-France",
+    description:
+      "J'ai créé des blogs et sites communautaires à from scratch en utilisant PHP et la programmation orientée objet (POO). De plus, j'ai développé des API avec PHP et Symfony. Par ailleurs, j'ai apporté des améliorations significatives à des applications existantes utilisant PHP et Symfony tout au long de ce cursus.",
     active: false,
+    show: false,
   },
 ]);
 // Handle Match Skills

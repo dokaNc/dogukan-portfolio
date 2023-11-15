@@ -38,4 +38,8 @@ export default {
       h2: "avec",
     },
   },
+  timeline: {
+    showMore: "Voir plus...",
+    showLess: "Moins",
+  },
 };

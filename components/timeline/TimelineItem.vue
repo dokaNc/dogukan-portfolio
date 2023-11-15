@@ -1,6 +1,4 @@
 <script setup>
-const hover = ref(false);
-
 defineProps({
   experiences: {
     type: Array,
@@ -11,7 +9,7 @@ defineProps({
 <template>
   <div
     v-for="exp in experiences"
-    :key="exp"
+    :key="exp.company"
     @mouseover="exp.active = true"
     @mouseleave="exp.active = false"
     @click="exp.active = true"
@@ -21,7 +19,15 @@ defineProps({
     </v-chip>
     <h3 class="mt-1">{{ exp.job }}</h3>
     <h4>@ {{ exp.company }} - {{ exp.type }} - {{ exp.city }}</h4>
-    <!-- <p class="mt-2">en savoir plus</p> -->
+    <div @click="exp.show = !exp.show" class="mt-2">
+      <p v-if="exp.show">{{ $t("timeline.showLess") }}</p>
+      <p v-else>{{ $t("timeline.showMore") }}</p>
+    </div>
+    <Transition>
+      <div class="show" v-if="exp.show">
+        {{ exp.description }}
+      </div>
+    </Transition>
   </div>
 </template>
 
@@ -62,6 +68,14 @@ defineProps({
   }
 }
 
+.show {
+  left: 30px;
+  position: relative;
+  width: 80%;
+  margin-top: 15px;
+  font-size: 0.8rem;
+}
+
 h3,
 h4,
 p {
@@ -73,11 +87,29 @@ p {
     color: $light-grey-main;
     font-size: 0.9rem;
   }
+}
 
-  + p {
-    font-size: 0.6rem;
-    font-weight: 600;
+p {
+  cursor: pointer !important;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: $light-grey-main;
+  transition: all 0.4s;
+
+  &:hover {
+    color: $blue-main;
+    transition: all 0.4s;
   }
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 
 // Dark Mode
@@ -96,8 +128,16 @@ p {
     }
   }
 
-  h4 {
+  h4,
+  p {
     color: $dark-grey-main;
+  }
+
+  p {
+    &:hover {
+      color: $blue-main;
+      transition: all 0.4s;
+    }
   }
 }
 </style>
