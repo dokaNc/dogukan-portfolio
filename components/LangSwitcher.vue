@@ -46,6 +46,7 @@ onMounted(() => {
 }
 
 button {
+  background: #292929;
   border-radius: 50px;
 
   a {
@@ -53,14 +54,16 @@ button {
   }
 
   a:-webkit-any-link {
-    color: #000;
+    color: #fff;
   }
 }
 
 .v-theme--darkTheme {
   button {
+    background-color: #f2f5f8;
+
     a:-webkit-any-link {
-      color: #fff;
+      color: #000;
     }
   }
 }

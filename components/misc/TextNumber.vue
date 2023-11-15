@@ -27,7 +27,7 @@ defineProps({
     font-size: 3.5rem;
     font-weight: 600;
     color: #fff;
-    -webkit-text-stroke: 2px #000;
+    -webkit-text-stroke: 1.5px #000;
     -webkit-font-smoothing: antialiased;
   }
 

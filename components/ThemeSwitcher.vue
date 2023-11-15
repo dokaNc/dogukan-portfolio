@@ -36,6 +36,13 @@ function toggleTheme() {
 }
 
 button {
+  background-color: #292929;
   border-radius: 50px;
+}
+
+.v-theme--darkTheme {
+  button {
+    background-color: #f2f5f8;
+  }
 }
 </style>
