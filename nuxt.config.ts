@@ -5,8 +5,8 @@ export default defineNuxtConfig({
   ssr: true,
   // devtools: { enabled: true },
   modules: [
+    "@pinia/nuxt",
     "@nuxtjs/i18n",
-    "@nuxtjs/color-mode",
     (_options, nuxt) => {
       nuxt.hooks.hook("vite:extendConfig", (config) => {
         // @ts-expect-error
