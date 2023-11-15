@@ -1,6 +1,7 @@
 <script setup>
 import AutocompleteDefault from "@/components/controls/AutocompleteDefault.vue";
 import TextNumber from "@/components/misc/TextNumber.vue";
+import FullnameTitle from "@/components/misc/FullnameTitle.vue";
 import navBar from "@/components/navigation/NavBar.vue";
 import avatar from "@/assets/images/avatar.jpg";
 
@@ -140,6 +141,11 @@ onMounted(() => {
         <v-col>
           <theme-switcher />
           <lang-switcher />
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col cols="12">
+          <fullname-title firstName="Dogukan" lastName="Cirpan" />
         </v-col>
       </v-row>
       <v-row>
