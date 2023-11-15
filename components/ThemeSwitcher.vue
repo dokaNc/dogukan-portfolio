@@ -1,19 +1,13 @@
 <script setup>
-import { useTheme } from "vuetify";
+import { useThemeSwitch } from "@/composables/useThemeSwitch";
 
-const theme = useTheme();
-
-function toggleTheme() {
-  theme.global.name.value = theme.global.current.value.dark
-    ? "lightTheme"
-    : "darkTheme";
-}
+const { theme, toggleTheme } = useThemeSwitch();
 </script>
 
 <template>
   <div class="theme-container shadow-dark">
     <v-btn @click="toggleTheme">
-      <div v-if="theme.global.name.value === 'lightTheme'">🌑</div>
+      <div v-if="!theme.global.current.value.dark">🌑</div>
       <div v-else>🌙</div>
     </v-btn>
   </div>
