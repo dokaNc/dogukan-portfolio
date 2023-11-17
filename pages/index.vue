@@ -1,5 +1,5 @@
 <script setup>
-import AutocompleteDefault from "@/components/controls/AutocompleteDefault.vue";
+import AutocompleteDefault from "@/components/form/AutocompleteDefault.vue";
 import TextNumber from "@/components/misc/TextNumber.vue";
 import FullnameTitle from "@/components/misc/FullnameTitle.vue";
 import leftNav from "~/components/navigation/LeftNav.vue";
