@@ -2,7 +2,7 @@
 import AutocompleteDefault from "@/components/controls/AutocompleteDefault.vue";
 import TextNumber from "@/components/misc/TextNumber.vue";
 import FullnameTitle from "@/components/misc/FullnameTitle.vue";
-import navBar from "@/components/navigation/NavBar.vue";
+import leftNav from "~/components/navigation/LeftNav.vue";
 import avatar from "@/assets/images/avatar.jpg";
 
 const { locale } = useI18n();
@@ -170,7 +170,7 @@ onMounted(() => {
             }"
           >
             <template v-slot:content>
-              <nav-bar :links="nav" />
+              <left-nav :links="nav" />
             </template>
           </section-block>
         </v-col>

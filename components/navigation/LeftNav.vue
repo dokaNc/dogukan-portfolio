@@ -3,10 +3,6 @@ const props = defineProps({
   links: {
     type: Array,
   },
-  active: {
-    type: Boolean,
-    default: false,
-  },
 });
 </script>
 
