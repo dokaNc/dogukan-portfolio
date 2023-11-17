@@ -4,6 +4,7 @@ import TextNumber from "@/components/misc/TextNumber.vue";
 import FullnameTitle from "@/components/misc/FullnameTitle.vue";
 import leftNav from "~/components/navigation/LeftNav.vue";
 import ToggleMenu from "~/components/navigation/ToggleMenu.vue";
+import TopNav from "~/components/navigation/TopNav.vue";
 import avatar from "@/assets/images/avatar.jpg";
 
 const { locale } = useI18n();
@@ -11,6 +12,10 @@ const nav = reactive([
   { href: "about", active: true },
   { href: "experience", active: false },
   { href: "skill", active: false },
+]);
+const topNav = reactive([
+  { name: "GitHub", href: "https://github.com/dokaNc" },
+  { name: "Linkedin", href: "https://www.linkedin.com/in/dogukan-cirpan/" },
 ]);
 const languages = [
   "JavaScript",
@@ -178,6 +183,7 @@ onMounted(() => {
               <p>© 2023 Dogukan CIRPAN.</p>
             </template>
           </toggle-menu>
+          <top-nav class="mr-6" :links="topNav" />
           <theme-switcher />
           <lang-switcher />
         </v-col>
