@@ -21,6 +21,10 @@ h1 {
   font-weight: 600;
   text-transform: capitalize;
 
+  @media (max-width: 565px) {
+    font-size: 1.9rem;
+  }
+
   span {
     text-transform: capitalize;
     color: #f2f5f8;
