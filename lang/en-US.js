@@ -42,4 +42,9 @@ export default {
     showMore: "See more...",
     showLess: "Close",
   },
+  toggleMenu: {
+    phone: "Phone",
+    email: "Email",
+    tools: "Tools for this CV",
+  },
 };

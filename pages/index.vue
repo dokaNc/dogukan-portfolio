@@ -3,6 +3,7 @@ import AutocompleteDefault from "@/components/controls/AutocompleteDefault.vue";
 import TextNumber from "@/components/misc/TextNumber.vue";
 import FullnameTitle from "@/components/misc/FullnameTitle.vue";
 import leftNav from "~/components/navigation/LeftNav.vue";
+import ToggleMenu from "~/components/navigation/ToggleMenu.vue";
 import avatar from "@/assets/images/avatar.jpg";
 
 const { locale } = useI18n();
@@ -151,10 +152,37 @@ onMounted(() => {
     <v-container>
       <v-row>
         <v-col>
+          <toggle-menu>
+            <template v-slot:top-content>
+              <h3>{{ $t("toggleMenu.phone") }}:</h3>
+              <p>+33 6 84 22 66 29</p>
+              <h3 class="mt-8">{{ $t("toggleMenu.email") }}:</h3>
+              <p>dogukan.crp@gmail.com</p>
+              <h3 class="mt-8 mb-1">{{ $t("toggleMenu.tools") }}:</h3>
+              <div class="d-flex list">
+                <ul>
+                  <li>Vue 3</li>
+                  <li>Nuxt 3</li>
+                  <li>Pinia</li>
+                  <li>Vuetify</li>
+                </ul>
+                <ul>
+                  <li>SCSS</li>
+                  <li>i18n</li>
+                  <li>Email JS</li>
+                  <li>Git</li>
+                </ul>
+              </div>
+            </template>
+            <template v-slot:bot-content>
+              <p>© 2023 Dogukan CIRPAN.</p>
+            </template>
+          </toggle-menu>
           <theme-switcher />
           <lang-switcher />
         </v-col>
       </v-row>
+
       <v-row>
         <v-col cols="12">
           <fullname-title firstName="Dogukan" lastName="Cirpan" />
@@ -266,6 +294,29 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
+.top-content {
+  h3 {
+    font-family: "Source Code Pro", monospace !important;
+    text-transform: uppercase !important;
+    font-weight: 400;
+    font-size: 1rem;
+  }
+
+  p {
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+
+  ul {
+    padding-left: 1.2rem;
+    font-weight: 500;
+  }
+
+  .list {
+    gap: 2rem;
+  }
+}
+
 .text-number {
   gap: 3rem;
 

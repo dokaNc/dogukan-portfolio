@@ -38,7 +38,7 @@ onMounted(() => {
   justify-content: center;
   align-items: center;
   transition: 0.5s;
-  z-index: 1;
+  z-index: 3;
 }
 
 .theme-container:hover {
