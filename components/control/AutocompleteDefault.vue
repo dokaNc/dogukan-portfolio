@@ -1,3 +1,20 @@
+<script setup>
+const props = defineProps({
+  label: {
+    type: String,
+  },
+  data: {
+    type: Array,
+  },
+  selected: {
+    type: Array,
+  },
+  loading: {
+    type: Boolean,
+  },
+});
+</script>
+
 <template>
   <v-autocomplete
     chips
@@ -15,23 +32,6 @@
     @click="$emit('clickInput')"
   ></v-autocomplete>
 </template>
-
-<script setup>
-const props = defineProps({
-  label: {
-    type: String,
-  },
-  data: {
-    type: Array,
-  },
-  selected: {
-    type: Array,
-  },
-  loading: {
-    type: Boolean,
-  },
-});
-</script>
 
 <style scoped lang="scss">
 .v-field__input {

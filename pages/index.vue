@@ -1,5 +1,6 @@
 <script setup>
-import AutocompleteDefault from "@/components/form/AutocompleteDefault.vue";
+import AutocompleteDefault from "@/components/control/AutocompleteDefault.vue";
+import FormDefault from "@/components/control/form/FormDefault.vue";
 import TextNumber from "@/components/misc/TextNumber.vue";
 import FullnameTitle from "@/components/misc/FullnameTitle.vue";
 import leftNav from "~/components/navigation/LeftNav.vue";
@@ -12,6 +13,7 @@ const nav = reactive([
   { href: "about", active: true },
   { href: "experience", active: false },
   { href: "skill", active: false },
+  { href: "contact", active: false },
 ]);
 const topNav = reactive([
   { name: "GitHub", href: "https://github.com/dokaNc" },
@@ -156,7 +158,7 @@ onMounted(() => {
   <v-app>
     <v-container>
       <v-row>
-        <v-col>
+        <v-col class="pb-0">
           <toggle-menu>
             <template v-slot:top-content>
               <h3>{{ $t("toggleMenu.phone") }}:</h3>
@@ -280,6 +282,10 @@ onMounted(() => {
                   :number="content.number"
                   :title="content.title.loc.source"
                 />
+              </div>
+
+              <div v-if="item.href === 'contact'">
+                <form-default />
               </div>
             </template>
           </section-block>

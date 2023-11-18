@@ -38,6 +38,12 @@ export default {
       h2: "with",
     },
   },
+  contact: {
+    title: "Contact",
+    subtitle: "Let’s discuss your project!",
+    content:
+      "Whether you have an idea in mind or are simply looking to learn more about my services, please don't hesitate to contact me. I'm here to help you bring your ideas to life.",
+  },
   timeline: {
     showMore: "See more...",
     showLess: "Close",
@@ -46,5 +52,19 @@ export default {
     phone: "Phone",
     email: "Email",
     tools: "Tools for this CV",
+  },
+  button: {
+    send: "Send",
+  },
+  rules: {
+    nameRequired: "Name is required",
+    emailRequired: "E-mail is required",
+    emailValid: "E-mail must be valid",
+    subjectRequired: "Subject is required",
+    messageRequired: "Message is required",
+  },
+  alert: {
+    messageSend: "Thank you ! Your message has been sent.",
+    error: "An error has occurred ! Try Again.",
   },
 };
