@@ -9,16 +9,70 @@ import TopNav from "~/components/navigation/TopNav.vue";
 import avatar from "@/assets/images/avatar.jpg";
 
 const { locale } = useI18n();
+
+// Navigation
 const nav = reactive([
   { href: "about", active: true },
-  { href: "experience", active: false },
-  { href: "skill", active: false },
-  { href: "contact", active: false },
+  { href: "experience" },
+  { href: "skill" },
+  { href: "contact" },
 ]);
 const topNav = reactive([
-  { name: "GitHub", href: "https://github.com/dokaNc" },
+  {
+    name: "Figma",
+    href: "https://www.figma.com/file/MeScvNy6N4hcpskmc0CRzf/Portfolio?type=design&node-id=25-2&mode=design",
+  },
+  { name: "GitHub", href: "https://github.com/dokaNc/dogukan-portfolio" },
   { name: "Linkedin", href: "https://www.linkedin.com/in/dogukan-cirpan/" },
 ]);
+
+// Experience
+const expPro = [
+  {
+    startDate: "Oct. 2022",
+    endDate: "Dec. 2023",
+    job: "Développeur Full Stack",
+    company: "Apave",
+    type: "CDD",
+    city: "Île-de-France",
+    description:
+      "J'ai mis en place l'environnement de développement front pour la nouvelle version de l'application avec Vue 3 et Storybook. J'ai développé de nouvelles fonctionnalités, réalisé l'intégration BDD et TDD, rédigé des tests fonctionnels et unitaires (E2E). J'ai également développé l'API Rest de l'application avec Symfony et API Platform, ainsi que de nouvelles fonctionnalités pour l'ancienne version avec PHP 7.3 et une migration vers 8.1. J'ai effectué des requêtes SQL complexes (MySQL) et participé à des code reviews et l'utilisation de Docker, Git BitBucket, Jira.",
+  },
+  {
+    startDate: "Mar. 2020",
+    endDate: "Juil. 2022",
+    job: "Développeur Full Stack",
+    company: "France Bois Service",
+    type: "CDI",
+    city: "Hauts-De-France",
+    description:
+      "J'ai conçu une interface avec Vue 3 et mis en place une API Rest performante avec Symfony 6 x API Platform 3, assurant des fonctionnalités sécurisées et des performances optimales. Mon travail a inclus l'intégration de fonctionnalités avancées telles que la gestion des commandes et la traçabilité des stocks. En collaborant étroitement avec les équipes internes, j'ai compris les besoins métier, et fourni des solutions adaptées. J'ai également garanti la scalabilité, la sécurité et la maintenance à long terme.",
+  },
+  {
+    startDate: "Dec. 2019",
+    endDate: "Ferv. 2020",
+    job: "Développeur PHP / WordPress",
+    company: "Hello Courtier",
+    type: "Freelance",
+    city: "Paris, Île-de-France",
+    description:
+      "J'ai optimisé l'application web en refondant les pages principales, améliorant les performances avec une optimisation PageSpeed et retravailler le responsive global de l'appli. J'ai également assuré la migration de l'application vers un nouvel hébergeur tout en fournissant un accompagnement client.",
+  },
+];
+const expEdu = [
+  {
+    startDate: "Janv. 2020",
+    endDate: "Nov. 2020",
+    job: "Développeur PHP / Symfony",
+    company: "OP",
+    type: "Etudiant",
+    city: "Paris, Île-de-France",
+    description:
+      "J'ai créé des blogs et sites communautaires à from scratch en utilisant PHP et la programmation orientée objet (POO). De plus, j'ai développé des API avec PHP et Symfony. Par ailleurs, j'ai apporté des améliorations significatives à des applications existantes utilisant PHP et Symfony tout au long de ce cursus.",
+  },
+];
+
+// Handle Match Skills
 const languages = [
   "JavaScript",
   "Vue Js",
@@ -43,59 +97,6 @@ const languages = [
   "CSS/SASS",
 ];
 const selected = ref([]);
-const expPro = reactive([
-  {
-    startDate: "Oct. 2022",
-    endDate: "Dec. 2023",
-    job: "Développeur Full Stack",
-    company: "Apave",
-    type: "CDD",
-    city: "Île-de-France",
-    description:
-      "J'ai mis en place l'environnement de développement front pour la nouvelle version de l'application avec Vue 3 et Storybook. J'ai développé de nouvelles fonctionnalités, réalisé l'intégration BDD et TDD, rédigé des tests fonctionnels et unitaires (E2E). J'ai également développé l'API Rest de l'application avec Symfony et API Platform, ainsi que de nouvelles fonctionnalités pour l'ancienne version avec PHP 7.3 et une migration vers 8.1. J'ai effectué des requêtes SQL complexes (MySQL) et participé à des code reviews et l'utilisation de Docker, Git BitBucket, Jira.",
-    active: false,
-    show: false,
-  },
-  {
-    startDate: "Mar. 2020",
-    endDate: "Juil. 2022",
-    job: "Développeur Full Stack",
-    company: "France Bois Service",
-    type: "CDI",
-    city: "Hauts-De-France",
-    description:
-      "J'ai conçu une interface avec Vue 3 et mis en place une API Rest performante avec Symfony 6 x API Platform 3, assurant des fonctionnalités sécurisées et des performances optimales. Mon travail a inclus l'intégration de fonctionnalités avancées telles que la gestion des commandes et la traçabilité des stocks. En collaborant étroitement avec les équipes internes, j'ai compris les besoins métier, et fourni des solutions adaptées. J'ai également garanti la scalabilité, la sécurité et la maintenance à long terme.",
-    active: false,
-    show: false,
-  },
-  {
-    startDate: "Dec. 2019",
-    endDate: "Ferv. 2020",
-    job: "Développeur PHP / WordPress",
-    company: "Hello Courtier",
-    type: "Freelance",
-    city: "Paris, Île-de-France",
-    description:
-      "J'ai optimisé l'application web en refondant les pages principales, améliorant les performances avec une optimisation PageSpeed et retravailler le responsive global de l'appli. J'ai également assuré la migration de l'application vers un nouvel hébergeur tout en fournissant un accompagnement client.",
-    active: false,
-    show: false,
-  },
-]);
-const expEdu = reactive([
-  {
-    startDate: "Janv. 2020",
-    endDate: "Nov. 2020",
-    job: "Développeur PHP / Symfony",
-    company: "OP",
-    type: "Etudiant",
-    city: "Paris, Île-de-France",
-    description:
-      "J'ai créé des blogs et sites communautaires à from scratch en utilisant PHP et la programmation orientée objet (POO). De plus, j'ai développé des API avec PHP et Symfony. Par ailleurs, j'ai apporté des améliorations significatives à des applications existantes utilisant PHP et Symfony tout au long de ce cursus.",
-    active: false,
-    show: false,
-  },
-]);
-// Handle Match Skills
 const match = ref(null);
 const load = ref(false);
 
@@ -267,10 +268,30 @@ onMounted(() => {
               <div v-if="item.href === 'experience'">
                 <timeline first-icon="💼" second-icon="🎓">
                   <template v-slot:content-first>
-                    <timeline-item :experiences="expPro" />
+                    <timeline-item
+                      v-for="exp in expPro"
+                      :key="exp"
+                      :start-date="exp.startDate"
+                      :end-date="exp.endDate"
+                      :job="exp.job"
+                      :company="exp.company"
+                      :type="exp.type"
+                      :city="exp.city"
+                      :description="exp.description"
+                    />
                   </template>
                   <template v-slot:content-second>
-                    <timeline-item :experiences="expEdu" />
+                    <timeline-item
+                      v-for="exp in expEdu"
+                      :key="exp"
+                      :start-date="exp.startDate"
+                      :end-date="exp.endDate"
+                      :job="exp.job"
+                      :company="exp.company"
+                      :type="exp.type"
+                      :city="exp.city"
+                      :description="exp.description"
+                    />
                   </template>
                 </timeline>
               </div>

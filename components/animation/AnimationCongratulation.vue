@@ -1,3 +1,13 @@
+<script setup>
+import congratulationJSON from "./assets/lottiefiles/congratulation.json";
+
+const props = defineProps({
+  congratulationText: {
+    type: String,
+  },
+});
+</script>
+
 <template>
   <client-only>
     <Vue3Lottie :animationData="congratulationJSON" :width="350" />
@@ -10,16 +20,6 @@
     </h2>
   </div>
 </template>
-
-<script setup>
-import congratulationJSON from "./assets/lottiefiles/congratulation.json";
-
-const props = defineProps({
-  congratulationText: {
-    type: String,
-  },
-});
-</script>
 
 <style scoped lang="scss">
 .lottie-animation-container {

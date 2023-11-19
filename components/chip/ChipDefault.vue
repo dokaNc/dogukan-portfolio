@@ -1,9 +1,3 @@
-<template>
-  <v-chip class="px-6" variant="outlined" :class="{ active: active }">
-    {{ props.text }}
-  </v-chip>
-</template>
-
 <script setup>
 const props = defineProps({
   text: {
@@ -14,6 +8,12 @@ const props = defineProps({
   },
 });
 </script>
+
+<template>
+  <v-chip class="px-6" variant="outlined" :class="{ active: active }">
+    {{ props.text }}
+  </v-chip>
+</template>
 
 <style scoped lang="scss">
 .v-chip {

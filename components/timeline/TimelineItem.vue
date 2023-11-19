@@ -1,31 +1,50 @@
 <script setup>
+const active = ref(false);
+const show = ref(false);
+
 defineProps({
-  experiences: {
-    type: Array,
+  startDate: {
+    type: String,
+  },
+  endDate: {
+    type: String,
+  },
+  job: {
+    type: String,
+  },
+  company: {
+    type: String,
+  },
+  type: {
+    type: String,
+  },
+  city: {
+    type: String,
+  },
+  description: {
+    type: String,
   },
 });
 </script>
 
 <template>
   <div
-    v-for="exp in experiences"
-    :key="exp.company"
-    @mouseover="exp.active = true"
-    @mouseleave="exp.active = false"
-    @click="exp.active = true"
+    @mouseover="active = true"
+    @mouseleave="active = false"
+    @click="active = true"
   >
-    <v-chip class="ml-6" variant="outlined" :class="{ active: exp.active }">
-      {{ exp.startDate }} - {{ exp.endDate }}
+    <v-chip class="ml-6" variant="outlined" :class="{ active: active }">
+      {{ startDate }} - {{ endDate }}
     </v-chip>
-    <h3 class="mt-1">{{ exp.job }}</h3>
-    <h4>@ {{ exp.company }} - {{ exp.type }} - {{ exp.city }}</h4>
-    <div @click="exp.show = !exp.show" class="mt-2">
-      <p v-if="exp.show">{{ $t("timeline.showLess") }}</p>
+    <h3 class="mt-1">{{ job }}</h3>
+    <h4>@ {{ company }} - {{ type }} - {{ city }}</h4>
+    <div @click="show = !show" class="mt-2">
+      <p v-if="show">{{ $t("timeline.showLess") }}</p>
       <p v-else>{{ $t("timeline.showMore") }}</p>
     </div>
     <Transition>
-      <div class="show" v-if="exp.show">
-        {{ exp.description }}
+      <div class="show" v-if="show">
+        {{ description }}
       </div>
     </Transition>
   </div>

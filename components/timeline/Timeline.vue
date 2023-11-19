@@ -1,3 +1,14 @@
+<script setup>
+defineProps({
+  firstIcon: {
+    type: String,
+  },
+  secondIcon: {
+    type: String,
+  },
+});
+</script>
+
 <template>
   <div
     class="container d-flex align-baseline flex-md-row flex-sm-column flex-column mt-4"
@@ -17,17 +28,6 @@
     </div>
   </div>
 </template>
-
-<script setup>
-defineProps({
-  firstIcon: {
-    type: String,
-  },
-  secondIcon: {
-    type: String,
-  },
-});
-</script>
 
 <style scoped lang="scss">
 .container {

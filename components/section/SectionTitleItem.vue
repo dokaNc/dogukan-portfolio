@@ -1,12 +1,3 @@
-<template>
-  <!-- After TEXT EN FOND (z-index, absolute) -->
-  <!-- Before les 2 slash // -->
-  <div class="title mb-4">
-    <div class="title-back">{{ props.title }}</div>
-    <div class="title-front d-flex align-center">{{ props.title }}</div>
-  </div>
-</template>
-
 <script setup>
 const props = defineProps({
   title: {
@@ -14,6 +5,13 @@ const props = defineProps({
   },
 });
 </script>
+
+<template>
+  <div class="title mb-4">
+    <div class="title-back">{{ props.title }}</div>
+    <div class="title-front d-flex align-center">{{ props.title }}</div>
+  </div>
+</template>
 
 <style scoped lang="scss">
 .title {

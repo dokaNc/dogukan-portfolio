@@ -1,3 +1,5 @@
+<script setup></script>
+
 <template>
   <div class="blur">
     <div class="content">
@@ -5,8 +7,6 @@
     </div>
   </div>
 </template>
-
-<script setup></script>
 
 <style scoped lang="scss">
 .blur {
