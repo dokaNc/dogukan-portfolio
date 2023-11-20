@@ -4,24 +4,18 @@ export function useThemeSwitch() {
   const theme = useTheme();
 
   function toggleTheme() {
-    if (theme.global.name.value === "darkTheme") {
-      localStorage.setItem("theme", "lightTheme");
+    if (localStorage.getItem("theme") === "lightTheme") {
+      localStorage.setItem("theme", "darkTheme");
       theme.global.name.value = localStorage.getItem("theme");
     } else {
-      localStorage.setItem("theme", "darkTheme");
+      localStorage.setItem("theme", "lightTheme");
       theme.global.name.value = localStorage.getItem("theme");
     }
   }
 
-  if (typeof window !== "undefined") {
-    if (localStorage.getItem("theme") === "lightTheme") {
+  onMounted(() => {
+    if (localStorage.getItem("theme")) {
       theme.global.name.value = localStorage.getItem("theme");
-    }
-  }
-
-  onBeforeMount(() => {
-    if (theme.global.name.value === "darkTheme") {
-      localStorage.setItem("theme", "darkTheme");
     }
   });
 
