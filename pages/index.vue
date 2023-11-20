@@ -171,12 +171,11 @@ onMounted(() => {
                 <ul>
                   <li>Vue 3</li>
                   <li>Nuxt 3</li>
-                  <li>Pinia</li>
                   <li>Vuetify</li>
+                  <li>i18n</li>
                 </ul>
                 <ul>
                   <li>SCSS</li>
-                  <li>i18n</li>
                   <li>Email JS</li>
                   <li>Git</li>
                 </ul>
