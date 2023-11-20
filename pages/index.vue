@@ -65,7 +65,7 @@ const expEdu = [
     endDate: "Nov. 2020",
     job: "Développeur PHP / Symfony",
     company: "OP",
-    type: "Etudiant",
+    type: "Formation",
     city: "Paris, Île-de-France",
     description:
       "J'ai créé des blogs et sites communautaires à from scratch en utilisant PHP et la programmation orientée objet (POO). De plus, j'ai développé des API avec PHP et Symfony. Par ailleurs, j'ai apporté des améliorations significatives à des applications existantes utilisant PHP et Symfony tout au long de ce cursus.",
