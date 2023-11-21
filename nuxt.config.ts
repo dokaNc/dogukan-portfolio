@@ -3,6 +3,13 @@ import vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
 
 export default defineNuxtConfig({
   ssr: true,
+  runtimeConfig: {
+    public: {
+      EMAILJS_SERVICE_ID: process.env.EMAILJS_SERVICE_ID,
+      EMAILJS_TEMPLATE_ID: process.env.EMAILJS_TEMPLATE_ID,
+      EMAILJS_YOUR_PUBLIC_KEY: process.env.EMAILJS_YOUR_PUBLIC_KEY,
+    },
+  },
   // devtools: { enabled: true },
   modules: [
     "@pinia/nuxt",

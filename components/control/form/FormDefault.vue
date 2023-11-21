@@ -1,6 +1,8 @@
 <script setup>
 import emailjs from "@emailjs/browser";
 
+const runtimeConfig = useRuntimeConfig();
+
 const { t } = useI18n();
 
 const form = ref(null);
@@ -20,10 +22,10 @@ const messageRules = ref([(v) => !!v || t("rules.messageRequired")]);
 function sendEmail(e) {
   emailjs
     .sendForm(
-      "service_810112q",
-      "template_hquc4ur",
+      runtimeConfig.public.EMAILJS_SERVICE_ID,
+      runtimeConfig.public.EMAILJS_TEMPLATE_ID,
       form.value.$el,
-      "seCDh9pHUT7i6ULxn"
+      runtimeConfig.public.EMAILJS_YOUR_PUBLIC_KEY
     )
     .then(
       (result) => {
