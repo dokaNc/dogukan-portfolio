@@ -153,6 +153,12 @@ onMounted(() => {
     observer.observe(section);
   });
 });
+
+// SEO Meta
+useSeoMeta({
+  title: "Dogukan - Portfolio",
+  description: "Développeur Full Stack sur Vue JS, Symfony, PHP, JavaScript.",
+});
 </script>
 
 <template>
