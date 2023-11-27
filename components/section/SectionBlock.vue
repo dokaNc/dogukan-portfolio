@@ -4,11 +4,18 @@ defineProps({
     type: Boolean,
     default: false,
   },
+  padding: {
+    type: Boolean,
+    default: true,
+  },
 });
 </script>
 
 <template>
-  <div class="section-block d-flex flex-column px-14 py-16">
+  <div
+    class="section-block d-flex flex-column"
+    :class="{ 'px-14': padding, 'py-16': padding }"
+  >
     <div class="avatar d-flex flex-row" v-if="avatar">
       <slot name="avatar"></slot>
       <div class="avatar-content d-flex flex-column">

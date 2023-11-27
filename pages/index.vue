@@ -142,7 +142,8 @@ onMounted(() => {
 
   // init the observer
   const options = {
-    threshold: 1,
+    rootMargin: "16% 0px 5% 0px",
+    threshold: 0.9, // half of item height
   };
 
   const observer = new IntersectionObserver(changeNav, options);
@@ -205,6 +206,7 @@ useSeoMeta({
       <v-row>
         <v-col cols="12" lg="3" md="12" sm="12" xs="12">
           <section-block
+            :padding="false"
             :style="{
               backgroundColor: '#632fff',
               position: 'sticky',

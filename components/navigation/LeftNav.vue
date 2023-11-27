@@ -24,6 +24,10 @@ const props = defineProps({
 <style scoped lang="scss">
 .navigation {
   gap: 1.5rem;
+  padding-top: 46px !important;
+  padding-bottom: 46px !important;
+  padding-right: 56px !important;
+  padding-left: 56px !important;
 
   .router-link-active {
     text-decoration: none;
@@ -64,6 +68,15 @@ const props = defineProps({
       animation-timing-function: linear;
       transition: all 0.2s;
     }
+  }
+}
+
+@media (max-width: 1279px) {
+  .navigation {
+    gap: 1rem !important;
+    padding-top: 36px !important;
+    padding-bottom: 36px !important;
+    font-size: 0.9rem !important;
   }
 }
 
