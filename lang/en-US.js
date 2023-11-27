@@ -11,16 +11,20 @@ export default {
     subtitle: "Full Stack Developer",
     content:
       "Hi ! As a full stack developer, I am determined to contribute to various projects to strengthen my skills and gain valuable human experience. My journey is guided by my thirst for learning and my desire to build meaningful professional connections.",
-    extraContent: [
-      {
-        number: 3,
-        title: "Years of experience",
-      },
-      {
-        number: 15,
-        title: "Completed projects",
-      },
-    ],
+    extraNumber1: "3",
+    extraTitle1: "Years of experience",
+    extraNumber2: "15",
+    extraTitle2: "Projets aboutis",
+    // extraContent: [
+    //   {
+    //     number: 3,
+    //     title: "Completed projects",
+    //   },
+    //   {
+    //     number: 15,
+    //     title: "Completed projects",
+    //   },
+    // ],
   },
   experience: {
     title: "Experience",
@@ -55,6 +59,12 @@ export default {
   },
   button: {
     send: "Send",
+  },
+  form: {
+    name: "Name",
+    email: "Email",
+    subject: "Subject",
+    message: "Message",
   },
   rules: {
     nameRequired: "Name is required",

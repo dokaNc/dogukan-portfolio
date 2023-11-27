@@ -1,7 +1,7 @@
 <script setup>
 defineProps({
   number: {
-    type: Number,
+    type: String,
   },
   title: {
     type: String,

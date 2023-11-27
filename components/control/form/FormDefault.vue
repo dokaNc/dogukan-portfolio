@@ -55,7 +55,7 @@ function sendEmail(e) {
       <v-text-field
         variant="underlined"
         dense
-        label="Nom"
+        :label="$t('form.name')"
         name="name"
         :rules="nameRules"
         required
@@ -63,7 +63,7 @@ function sendEmail(e) {
       <v-text-field
         variant="underlined"
         dense
-        label="Email"
+        :label="$t('form.email')"
         name="email"
         :rules="emailRules"
         required
@@ -72,7 +72,7 @@ function sendEmail(e) {
     <v-text-field
       variant="underlined"
       dense
-      label="Sujet"
+      :label="$t('form.subject')"
       name="subject"
       :rules="subjectRules"
       required
@@ -80,7 +80,7 @@ function sendEmail(e) {
     <v-textarea
       variant="underlined"
       dense
-      label="Message"
+      :label="$t('form.message')"
       name="message"
       :rules="messageRules"
       required

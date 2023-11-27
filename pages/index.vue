@@ -296,11 +296,19 @@ onMounted(() => {
               </div>
 
               <div class="text-number d-flex" v-if="item.href === 'about'">
-                <text-number
+                <!-- <text-number
                   v-for="content in $tm(`${item.href}.extraContent`)"
                   :key="content"
                   :number="content.number"
-                  :title="content.title.loc.source"
+                  :title="content.title"
+                /> -->
+                <text-number
+                  :number="$t(`${item.href}.extraNumber1`)"
+                  :title="$t(`${item.href}.extraTitle1`)"
+                />
+                <text-number
+                  :number="$t(`${item.href}.extraNumber2`)"
+                  :title="$t(`${item.href}.extraTitle2`)"
                 />
               </div>
 
