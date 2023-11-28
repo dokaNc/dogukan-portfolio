@@ -142,8 +142,7 @@ onMounted(() => {
 
   // init the observer
   const options = {
-    rootMargin: "16% 0px 5% 0px",
-    threshold: 0.9, // half of item height
+    threshold: window.innerWidth > 660 ? 0.98 : 0.5,
   };
 
   const observer = new IntersectionObserver(changeNav, options);
