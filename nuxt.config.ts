@@ -18,7 +18,6 @@ export default defineNuxtConfig({
   },
   // devtools: { enabled: true },
   modules: [
-    "@pinia/nuxt",
     "@nuxtjs/i18n",
     (_options, nuxt) => {
       nuxt.hooks.hook("vite:extendConfig", (config) => {
