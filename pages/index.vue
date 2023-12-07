@@ -30,7 +30,7 @@ const topNav = reactive([
 const expPro = [
   {
     startDate: "Oct. 2022",
-    endDate: "Dec. 2023",
+    endDate: "Déc. 2023",
     job: "Développeur Full Stack",
     company: "Apave",
     type: "CDD",
@@ -39,7 +39,7 @@ const expPro = [
       "J'ai mis en place l'environnement de développement front pour la nouvelle version de l'application avec Vue 3 et Storybook. J'ai développé de nouvelles fonctionnalités, réalisé l'intégration BDD et TDD, rédigé des tests fonctionnels et unitaires (E2E). J'ai également développé l'API Rest de l'application avec Symfony et API Platform, ainsi que de nouvelles fonctionnalités pour l'ancienne version avec PHP 7.3 et une migration vers 8.1. J'ai effectué des requêtes SQL complexes (MySQL) et participé à des code reviews et l'utilisation de Docker, Git BitBucket, Jira.",
   },
   {
-    startDate: "Mar. 2020",
+    startDate: "Mai. 2020",
     endDate: "Juil. 2022",
     job: "Développeur Full Stack",
     company: "France Bois Service",
@@ -49,8 +49,8 @@ const expPro = [
       "J'ai conçu une interface avec Vue 3 et mis en place une API Rest performante avec Symfony 6 x API Platform 3, assurant des fonctionnalités sécurisées et des performances optimales. Mon travail a inclus l'intégration de fonctionnalités avancées telles que la gestion des commandes et la traçabilité des stocks. En collaborant étroitement avec les équipes internes, j'ai compris les besoins métier, et fourni des solutions adaptées. J'ai également garanti la scalabilité, la sécurité et la maintenance à long terme.",
   },
   {
-    startDate: "Dec. 2019",
-    endDate: "Ferv. 2020",
+    startDate: "Déc. 2019",
+    endDate: "Févr. 2020",
     job: "Développeur PHP / WordPress",
     company: "Hello Courtier",
     type: "Freelance",
@@ -61,14 +61,14 @@ const expPro = [
 ];
 const expEdu = [
   {
-    startDate: "Janv. 2020",
-    endDate: "Nov. 2020",
-    job: "Développeur PHP / Symfony",
-    company: "OP",
-    type: "Formation",
+    startDate: "Janv. 2019",
+    endDate: "Janv. 2020",
+    job: "Licence, Développeur d'application",
+    company: "OpenclassRooms",
+    type: "Licence",
     city: "Paris, Île-de-France",
     description:
-      "J'ai créé des blogs et sites communautaires à from scratch en utilisant PHP et la programmation orientée objet (POO). De plus, j'ai développé des API avec PHP et Symfony. Par ailleurs, j'ai apporté des améliorations significatives à des applications existantes utilisant PHP et Symfony tout au long de ce cursus.",
+      "Concevoir des solutions numériques, créer des architectures logicielles solides pour répondre aux besoins spécifiques des clients. Développer des fonctionnalités avancées en utilisant PHP et le framework Symfony pour garantir des performances optimales. Optimiser, maintenir et assurer la maintenance continue des applications existantes et veillerez à leur évolutivité. Tester et déboguer des applications pour garantir leur bon fonctionnement.",
   },
 ];
 
